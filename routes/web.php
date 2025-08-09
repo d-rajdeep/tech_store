@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+use App\Http\Controllers\PageController;
+
+Route::get('/', [PageController::class, 'index'])->name('index');
+
+Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+
+Route::get('/about', [PageController::class, 'about'])->name('about');
+
+
+Route::get('/product-details', [PageController::class, 'product_details'])->name('product-details');
