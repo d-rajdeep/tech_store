@@ -19,44 +19,41 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <!-- Left Menu -->
                             <ul id="nav" class="navbar-nav me-auto align-items-center">
+
+                                <div class="mega-category-menu">
+                                    <span class="cat-button"><i class="lni lni-menu"></i>All Categories</span>
+                                    <ul class="sub-category">
+                                        <li><a href="product-grids.html">Smart Phone</a></li>
+                                        <li><a href="product-grids.html">Digital Watch</a></li>
+                                        <li><a href="product-grids.html">Earphone</a></li>
+                                        <li><a href="product-grids.html">Laptop</a></li>
+                                        <li><a href="product-grids.html">Smart TV</a></li>
+                                        <li><a href="product-grids.html">Home Appliances</a></li>
+                                    </ul>
+                                </div>
+
                                 <li class="nav-item">
                                     <a href="{{ route('index') }}" class="active"
                                         aria-label="Toggle navigation">Home</a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a href="{{ route('about') }}" aria-label="Toggle navigation">About Us</a>
+                                    <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                        data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                    <ul class="sub-menu collapse" id="submenu-1-2">
+                                        <li class="nav-item"><a href="{{ route('about') }}">About Us</a></li>
+                                        <li class="nav-item"><a href="{{ route('product-details') }}">Product Details</a>
+                                        <li class="nav-item"><a href="{{ route('cart') }}">Cart</a></li>
+                                        <li class="nav-item"><a href="{{ route('checkout') }}">Checkout</a></li>
+                                        <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('shop') }}" aria-label="Toggle navigation">Shop</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('product-details') }}" aria-label="Toggle navigation">Product
-                                        Details</a>
-                                </li>
-
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Categories
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="{{ url('category/smart-phone') }}">Smart
-                                                Phone</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('category/digital-watch') }}">Digital
-                                                Watch</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('category/earphone') }}">Earphone</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="{{ url('category/laptop') }}">Laptop</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('category/smart-tv') }}">Smart TV</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="{{ url('category/home-appliances') }}">Home
-                                                Appliances</a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li class="nav-item">
-                                    <a href="contact.html" aria-label="Toggle navigation">Contact Us</a>
+                                    <a href="#" aria-label="Toggle navigation"></a>
                                 </li>
                             </ul>
 
@@ -66,6 +63,7 @@
                                 <a href="/register" class="btn nav-btn">Register</a>
                             </div>
                         </div>
+
                     </nav>
                     <!-- End Navbar -->
                 </div>

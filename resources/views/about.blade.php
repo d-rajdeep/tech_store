@@ -51,7 +51,7 @@
     </section>
     <!-- End About Area -->
 
-    <!-- Start Team Area -->
+    {{-- <!-- Start Team Area -->
     <section class="team section">
         <div class="container">
             <div class="row">
@@ -159,6 +159,6 @@
             </div>
         </div>
     </section>
-    <!-- End Team Area -->
+    <!-- End Team Area --> --}}
 
 @endsection

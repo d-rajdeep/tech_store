@@ -7,7 +7,7 @@
 
                 <!-- Logo -->
                 <div class="col-lg-3 col-md-3 col-7">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('index') }}">
                         <img src="assets/images/logo/logo.svg" alt="Logo">
                     </a>
                 </div>
