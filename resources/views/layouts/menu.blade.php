@@ -59,8 +59,8 @@
 
                             <!-- Right Buttons -->
                             <div class="d-flex gap-2">
-                                <a href="/login" class="btn nav-btn">Login</a>
-                                <a href="/register" class="btn nav-btn">Register</a>
+                                <a href="#" class="btn nav-btn">Login</a>
+                                <a href="#" class="btn nav-btn">Register</a>
                             </div>
                         </div>
 

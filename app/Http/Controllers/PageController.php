@@ -34,4 +34,12 @@ class PageController extends Controller
     public function contact(){
         return view('contact');
     }
+
+    public function login(){
+        return view('admin.login');
+    }
+
+    public function register(){
+        return view('user.register');
+    }
 }
