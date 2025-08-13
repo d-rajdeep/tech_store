@@ -38,3 +38,11 @@ Route::middleware('auth')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 });
+
+//Admin Dashboard page
+Route::get('/admin/dashboard/add-product',[PageController::class, 'add_product'])->name('admin.add-product');
+Route::get('/admin/dashboard/products',[PageController::class, 'products'])->name('admin.products');
+Route::get('/admin/dashboard/customers',[PageController::class, 'customers'])->name('admin.customers');
+Route::get('/admin/dashboard/customer-details',[PageController::class, 'customer_details'])->name('admin.customer-details');
+Route::get('/admin/dashboard/orders',[PageController::class, 'orders'])->name('admin.orders');
+Route::get('/admin/dashboard/order-details',[PageController::class, 'order_details'])->name('admin.order-details');

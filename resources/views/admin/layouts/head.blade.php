@@ -6,7 +6,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Phoenix</title>
+    <title>Admin Dashboard</title>
 
     <!-- ===============================================-->
     <!--    Favicons-->
@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('admin_assets/img/favicons/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('admin_assets/img/favicons/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin_assets/img/favicons/favicon-16x16.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin_assets/img/favicons/favicon.ico')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg')}}">
     <link rel="manifest" href="{{ asset('admin_assets/img/favicons/manifest.json')}}">
     <meta name="msapplication-TileImage" content="{{ asset('admin_assets/img/favicons/favicon.ico')}}">
     <meta name="theme-color" content="#ffffff">
