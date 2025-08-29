@@ -1,82 +1,109 @@
-<div class="collapse navbar-collapse" id="navbarVerticalCollapse"></div>
-
-<!-- Sidebar Content -->
-<div class="navbar-vertical-content">
-  <ul class="navbar-nav flex-column" id="navbarVerticalNav">
-
-    <!-- Home -->
-    <li class="nav-item">
-      <div class="nav-item-wrapper">
-        <a class="nav-link label-1" href="{{ route('admin.dashboard') }}">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span data-feather="home"></span></span>
-            <span class="nav-link-text">Home</span>
-          </div>
+<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    <!-- Sidebar Brand -->
+    <div class="sidebar-brand">
+        <a href="#" class="brand-link">
+            <span class="brand-text fw-light">Dashboard</span>
         </a>
-      </div>
-    </li>
+    </div>
 
-    <hr class="navbar-vertical-line" />
+    <!-- Sidebar Wrapper -->
+    <div class="sidebar-wrapper">
+        <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                @php
+                    $currentRoute = Route::currentRouteName();
+                @endphp
 
-    <!-- Add Product -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.add-product') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="plus-square"></span></span>
-          <span class="nav-link-text">Add Product</span>
-        </div>
-      </a>
-    </li>
+                <!-- Products -->
+                <li
+                    class="nav-item {{ in_array($currentRoute, ['admin.products.view', 'admin.products.create']) ? 'menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ in_array($currentRoute, ['admin.products.view', 'admin.products.create']) ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-box-seam"></i>
+                        <p>
+                            Products
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.product.view')}}"
+                                class="nav-link {{ $currentRoute === 'admin.products.view' ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-list-ul"></i>
+                                <p>View Products</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.product.create')}}"
+                                class="nav-link {{ $currentRoute === 'admin.products.create' ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-plus-circle"></i>
+                                <p>Add New Product</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-    <!-- Products -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.products') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="box"></span></span>
-          <span class="nav-link-text">Products</span>
-        </div>
-      </a>
-    </li>
+                <!-- Categories -->
+                <li
+                    class="nav-item {{ in_array($currentRoute, ['admin.categories.view', 'admin.categories.create']) ? 'menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ in_array($currentRoute, ['admin.categories.view', 'admin.categories.create']) ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-tags"></i>
+                        <p>
+                            Categories
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.categories.view') }}"
+                                class="nav-link {{ $currentRoute === 'admin.categories.view' ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-list-ul"></i>
+                                <p>View Categories</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.categories.create') }}"
+                                class="nav-link {{ $currentRoute === 'admin.categories.create' ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-plus-circle"></i>
+                                <p>Add New Category</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-    <!-- Customers -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.customers') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="users"></span></span>
-          <span class="nav-link-text">Customers</span>
-        </div>
-      </a>
-    </li>
+                <!-- Customers -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ $currentRoute === 'customers.index' ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-people"></i>
+                        <p>Customers</p>
+                    </a>
+                </li>
 
-    <!-- Customer Details -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.customer-details') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="user"></span></span>
-          <span class="nav-link-text">Customer Details</span>
-        </div>
-      </a>
-    </li>
+                <!-- Orders -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ $currentRoute === 'orders.index' ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-cart-check"></i>
+                        <p>Orders</p>
+                    </a>
+                </li>
 
-    <!-- Orders -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.orders') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="shopping-cart"></span></span>
-          <span class="nav-link-text">Orders</span>
-        </div>
-      </a>
-    </li>
+                <!-- Analytics -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ $currentRoute === 'analytics.index' ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-graph-up"></i>
+                        <p>Analytics</p>
+                    </a>
+                </li>
 
-    <!-- Order Details -->
-    <li class="nav-item">
-      <a class="nav-link label-1" href="{{ route('admin.order-details') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="file-text"></span></span>
-          <span class="nav-link-text">Order Details</span>
-        </div>
-      </a>
-    </li>
-
-  </ul>
-</div>
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ $currentRoute === 'settings.index' ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-gear"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

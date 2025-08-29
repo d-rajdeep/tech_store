@@ -1,55 +1,60 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>Admin Dashboard</title>
-
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('admin_assets/img/favicons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('admin_assets/img/favicons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin_assets/img/favicons/favicon-16x16.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg')}}">
-    <link rel="manifest" href="{{ asset('admin_assets/img/favicons/manifest.json')}}">
-    <meta name="msapplication-TileImage" content="{{ asset('admin_assets/img/favicons/favicon.ico')}}">
-    <meta name="theme-color" content="#ffffff">
-    <script src="{{ asset('admin_assets/vendors/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{ asset('admin_assets/vendors/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{ asset('admin_assets/js/config.js')}}"></script>
-
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link href="{{ asset('admin_assets/vendors/simplebar/simplebar.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link href="{{ asset('admin_assets/css/theme-rtl.min.css') }}" type="text/css" rel="stylesheet" id="style-rtl">
-    <link href="{{ asset('admin_assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
-    <link href="{{ asset('admin_assets/css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
-    <link href="{{ asset('admin_assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
-    <script>
-      var phoenixIsRTL = window.config.config.phoenixIsRTL;
-      if (phoenixIsRTL) {
-        var linkDefault = document.getElementById('style-default');
-        var userLinkDefault = document.getElementById('user-style-default');
-        linkDefault.setAttribute('disabled', true);
-        userLinkDefault.setAttribute('disabled', true);
-        document.querySelector('html').setAttribute('dir', 'rtl');
-      } else {
-        var linkRTL = document.getElementById('style-rtl');
-        var userLinkRTL = document.getElementById('user-style-rtl');
-        linkRTL.setAttribute('disabled', true);
-        userLinkRTL.setAttribute('disabled', true);
-      }
-    </script>
-    <link href="{{ asset('admin_assets/vendors/leaflet/leaflet.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin_assets/vendors/leaflet.markercluster/MarkerCluster.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin_assets/vendors/leaflet.markercluster/MarkerCluster.Default.css') }}" rel="stylesheet">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tech Store - Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
+    <!--begin::Primary Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Blog | Dashboard" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
+    />
+    <!--end::Primary Meta Tags-->
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+    />
+    <!--end::Fonts-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+      integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="{{asset('dashboard_assets/css/adminlte.css')}}" />
+    <!--end::Required Plugin(AdminLTE)-->
+    <!-- apexcharts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+      crossorigin="anonymous"
+    />
+    <!-- jsvectormap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+      integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+      crossorigin="anonymous"
+    />
   </head>

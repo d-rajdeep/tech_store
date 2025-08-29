@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Psy\CodeCleaner\ReturnTypePass;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class PageController extends Controller
 {
@@ -29,6 +32,10 @@ class PageController extends Controller
 
     public function product_details(){
         return view('product-details');
+    }
+
+    public function product_categorie(){
+        return view('admin.product-categorie');
     }
 
     public function contact(){
@@ -62,4 +69,6 @@ class PageController extends Controller
     public function order_details(){
         return view('admin.order-details');
     }
-}
+};
+
+
