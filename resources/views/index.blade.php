@@ -211,8 +211,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
-                    @foreach ($products as $product)
+                @foreach ($products as $product)
+                    <div class="col-lg-3 col-md-6 col-12 mb-4">
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
@@ -248,10 +248,8 @@
                             </div>
                         </div>
                         <!-- End Single Product -->
-                    @endforeach
-
-                </div>
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
