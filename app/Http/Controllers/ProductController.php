@@ -50,4 +50,19 @@ class ProductController extends Controller
         $products = Product::with('category')->latest()->get();
         return view('admin.product.view', compact('products'));
     }
+
+    public function productPublish($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->is_published = !$product->is_published;
+        $product->save();
+
+        return redirect()->back()->with('success', 'Product publish status updated successfully!');
+    }
+
+    public function show($id)
+    {
+        $product = Product::with('category')->findOrFail($id);
+        return view('index', compact('product'));
+    }
 }

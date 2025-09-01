@@ -12,13 +12,14 @@
         <table class="table table-bordered table-striped mt-3">
             <thead class="table-dark">
                 <tr>
-                    <th>SL No</th>
+                    <th>SL No.</th>
                     <th>Product Name</th>
                     <th>Category</th>
                     <th>Price</th>
                     <th>SKU</th>
                     <th>Image</th>
                     <th>Created At</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +39,16 @@
                             @endif
                         </td>
                         <td>{{ $product->created_at->format('d M, Y') }}</td>
+                        <td>
+                            <form action="{{ route('products.productPublish', $product->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                <button type="submit"
+                                    class="btn btn-sm {{ $product->is_published ? 'btn-warning' : 'btn-success' }}">
+                                    {{ $product->is_published ? 'Unpublish' : 'Publish' }}
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>

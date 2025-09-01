@@ -9,7 +9,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
 
+
 Route::get('/', [PageController::class, 'index'])->name('index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('admin.product.show');
 
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 
@@ -55,6 +57,9 @@ Route::get('/admin/dashboard/order-details',[PageController::class, 'order_detai
 Route::get('/admin/product/create', [ProductController::class, 'create'])->name('admin.product.create');
 Route::post('/admin/product', [ProductController::class, 'store'])->name('admin.product.store');
 Route::get('/admin/product/view', [ProductController::class, 'index'])->name('admin.product.view');
+
+Route::post('/admin/product/{id}/product-publish', [ProductController::class, 'productPublish'])->name('products.productPublish');
+
 
 
 // Category
