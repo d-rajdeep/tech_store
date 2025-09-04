@@ -65,4 +65,10 @@ class ProductController extends Controller
         $product = Product::with('category')->findOrFail($id);
         return view('index', compact('product'));
     }
+
+    public function frontendShow($id)
+    {
+        $product = Product::with('category')->findOrFail($id);
+        return view('product-details', compact('product'));
+    }
 }

@@ -13,6 +13,10 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('admin.product.show');
 
+// frontend product details
+Route::get('/product/{id}', [ProductController::class, 'frontendShow'])->name('product.show');
+
+
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');

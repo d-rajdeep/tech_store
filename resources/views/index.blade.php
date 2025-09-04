@@ -219,7 +219,7 @@
                                 <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('assets/images/no-image.png') }}"
                                     alt="{{ $product->name }}">
                                 <div class="button">
-                                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn">
+                                    <a href="{{ route('product.show', $product->id) }}" class="btn">
                                         <i class="lni lni-cart"></i> Add to Cart
                                     </a>
                                 </div>
@@ -229,7 +229,7 @@
                                     {{ $product->category ? $product->category->name : 'Uncategorized' }}
                                 </span>
                                 <h4 class="title">
-                                    <a href="{{ route('admin.product.show', $product->id) }}">{{ $product->name }}</a>
+                                    <a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
                                 </h4>
 
                                 {{-- Example static rating --}}

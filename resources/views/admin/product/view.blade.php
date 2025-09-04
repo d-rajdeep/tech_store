@@ -15,6 +15,7 @@
                     <th>SL No.</th>
                     <th>Product Name</th>
                     <th>Category</th>
+                    <th>Description</th>
                     <th>Price</th>
                     <th>SKU</th>
                     <th>Image</th>
@@ -28,6 +29,7 @@
                         <td>{{ $index + 1 }}</td> {{-- SL No --}}
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->category ? $product->category->name : 'N/A' }}</td>
+                        <td>{{ $product->description }}</td>
                         <td>₹{{ number_format($product->price, 2) }}</td>
                         <td>{{ $product->sku }}</td>
                         <td>
