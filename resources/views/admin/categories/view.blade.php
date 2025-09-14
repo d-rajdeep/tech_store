@@ -20,6 +20,7 @@
                     <tr>
                         <th>SL No</th>
                         <th>Category Name</th>
+                        <th>No of Item</th>
                         <th>Created At</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td> {{-- Serial number --}}
                             <td>{{ $category->name }}</td>
+                            <td>{{ $category->products_count }}</td> {{-- Comes from withCount --}}
                             <td>{{ $category->created_at->format('d M Y, h:i A') }}</td>
                         </tr>
                     @endforeach

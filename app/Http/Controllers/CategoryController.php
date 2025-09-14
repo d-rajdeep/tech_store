@@ -27,9 +27,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        // Show newest category first (highest ID at top)
-        $categories = Category::orderBy('id', 'desc')->get();
-
+        $categories = Category::withCount('products')->latest()->get();
         return view('admin.categories.view', compact('categories'));
     }
 }

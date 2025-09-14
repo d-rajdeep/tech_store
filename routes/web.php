@@ -19,6 +19,7 @@ Route::get('/product/{id}', [ProductController::class, 'frontendShow'])->name('p
 
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 
+
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
 Route::get('/product-details', [PageController::class, 'product_details'])->name('product-details');

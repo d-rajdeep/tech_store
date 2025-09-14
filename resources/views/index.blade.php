@@ -232,7 +232,7 @@
                                     <a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
                                 </h4>
 
-                                {{-- Example static rating --}}
+
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
                                     <li><i class="lni lni-star-filled"></i></li>

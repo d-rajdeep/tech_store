@@ -8,6 +8,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Product;
+use app\Models\Category;
 
 class PageController extends Controller
 {
@@ -19,8 +20,17 @@ class PageController extends Controller
 
     public function shop()
     {
-        return view('shop');
+        // products for the grid (only published example)
+        $products = Product::with('category')
+            ->where('is_published', true)   // optional
+            ->latest()
+            ->paginate(12);
+
+        // categories for sidebar (with product counts)
+        $categories = Category::withCount('products')->orderBy('name')->get();
+        return view('shop', compact('products', 'categories'));
     }
+
 
     public function about()
     {
