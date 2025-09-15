@@ -16,6 +16,7 @@ class Product extends Model
         'price',
         'sku',
         'is_published',
+        'category_id'
     ];
 
 

@@ -44,8 +44,8 @@
                                     <ul class="sub-menu collapse" id="submenu-1-2">
                                         <li class="nav-item"><a href="{{ route('about') }}">About Us</a></li>
                                         <li class="nav-item"><a href="{{ route('product-details') }}">Product Details</a>
-                                        <li class="nav-item"><a href="{{ route('cart') }}">Cart</a></li>
-                                        <li class="nav-item"><a href="{{ route('checkout') }}">Checkout</a></li>
+                                        {{-- <li class="nav-item"><a href="{{ route('cart') }}">Cart</a></li> --}}
+                                        {{-- <li class="nav-item"><a href="{{ route('checkout') }}">Checkout</a></li> --}}
                                         <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
                                 </li>

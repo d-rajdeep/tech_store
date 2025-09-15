@@ -37,15 +37,15 @@ class PageController extends Controller
         return view('about');
     }
 
-    public function cart()
-    {
-        return view('cart');
-    }
+    // public function cart()
+    // {
+    //     return view('cart');
+    // }
 
-    public function checkout()
-    {
-        return view('checkout');
-    }
+    // public function checkout()
+    // {
+    //     return view('checkout');
+    // }
 
     public function product_details()
     {

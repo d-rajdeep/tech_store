@@ -7,6 +7,8 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -24,7 +26,7 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 
 Route::get('/product-details', [PageController::class, 'product_details'])->name('product-details');
 
-Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+// Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 
 Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
 
@@ -71,4 +73,23 @@ Route::post('/admin/product/{id}/product-publish', [ProductController::class, 'p
 Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
 Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
 Route::get('/admin/categories/view', [CategoryController::class, 'index'])->name('admin.categories.view');
+
+// cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+// Checkout
+Route::get('/checkout', function () {
+    $cart = session()->get('cart', []);
+    return view('checkout', compact('cart'));
+})->name('checkout.index');
+
+// Orders
+Route::get('/admin/orders/view', [OrderController::class, 'index'])->name('admin.orders.view');
+Route::get('/admin/orders/view-details', [OrderController::class, 'view'])->name('admin.orders.view-details');
+
+Route::post('/checkout/place-order', [OrderController::class, 'store'])->name('checkout.store');
+Route::get('/order-success/{id}', [OrderController::class, 'success'])->name('orders.success');
 

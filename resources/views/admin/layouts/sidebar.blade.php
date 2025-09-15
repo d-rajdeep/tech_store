@@ -82,7 +82,7 @@
 
                 <!-- Orders -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ $currentRoute === 'orders.index' ? 'active' : '' }}">
+                    <a href="{{route('admin.orders.view')}}" class="nav-link {{ $currentRoute === 'orders.index' ? 'active' : '' }}">
                         <i class="nav-icon bi bi-cart-check"></i>
                         <p>Orders</p>
                     </a>

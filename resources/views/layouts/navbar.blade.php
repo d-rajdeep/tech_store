@@ -1,6 +1,6 @@
 <!-- Start Header Area -->
 <header class="header navbar-area">
-  <!-- Start Header Middle -->
+    <!-- Start Header Middle -->
     <div class="header-middle">
         <div class="container">
             <div class="row align-items-center">
@@ -48,54 +48,59 @@
                             <div class="cart-items">
                                 <a href="javascript:void(0)" class="main-btn">
                                     <i class="lni lni-cart"></i>
-                                    <span class="total-items">2</span>
+                                    <span class="total-items">{{ count(session('cart', [])) }}</span>
                                 </a>
                                 <!-- Shopping Item -->
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        <a href="cart.html">View Cart</a>
+                                        <span>{{ count(session('cart', [])) }} Item(s)</span>
+                                        <a href="{{ route('cart.index') }}">View Cart</a>
                                     </div>
+
                                     <ul class="shopping-list">
-                                        <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item">
-                                                <i class="lni lni-close"></i>
-                                            </a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href="product-details.html">
-                                                    <img src="assets/images/header/cart-items/item1.jpg" alt="#">
+                                        @php $total = 0; @endphp
+                                        @forelse (session('cart', []) as $id => $item)
+                                            @php $total += $item['price'] * $item['quantity']; @endphp
+                                            <li>
+                                                <a href="{{ route('cart.remove', $id) }}" class="remove"
+                                                    title="Remove this item">
+                                                    <i class="lni lni-close"></i>
                                                 </a>
-                                            </div>
-                                            <div class="content">
-                                                <h4><a href="product-details.html">Apple Watch Series 6</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item">
-                                                <i class="lni lni-close"></i>
-                                            </a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href="product-details.html">
-                                                    <img src="assets/images/header/cart-items/item2.jpg" alt="#">
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                            </div>
-                                        </li>
+                                                <div class="cart-img-head">
+                                                    <a class="cart-img" href="{{ route('product.show', $id) }}">
+                                                        <img src="{{ $item['image'] ? asset('storage/' . $item['image']) : asset('assets/images/no-image.png') }}"
+                                                            alt="{{ $item['name'] }}">
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4><a href="{{ route('product.show', $id) }}">{{ $item['name'] }}</a>
+                                                    </h4>
+                                                    <p class="quantity">{{ $item['quantity'] }}x -
+                                                        <span class="amount">₹{{ number_format($item['price'], 2) }}</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        @empty
+                                            <li>
+                                                <p class="text-muted text-center">Your cart is empty</p>
+                                            </li>
+                                        @endforelse
                                     </ul>
+
                                     <div class="bottom">
                                         <div class="total">
                                             <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
+                                            <span class="total-amount">₹{{ number_format($total, 2) }}</span>
                                         </div>
                                         <div class="button">
-                                            <a href="checkout.html" class="btn animate">Checkout</a>
+                                            <a href="{{ route('cart.index') }}" class="btn btn-primary">View Cart</a>
+                                        </div>
+                                        <div class="button mt-2">
+                                            <a href="{{ route('checkout.index') }}" class="btn btn-success">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
+
                                 <!--/ End Shopping Item -->
                             </div>
                         </div>
