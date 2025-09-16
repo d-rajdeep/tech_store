@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Mail\OrderPlacedUserMail;
+use App\Mail\OrderPlacedAdminMail;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -39,6 +42,7 @@ class OrderController extends Controller
             'landmark' => 'nullable|string',
             'city' => 'required|string',
             'state' => 'required|string',
+            'email' => 'required|email', // ✅ make sure email is validated
         ]);
 
         $grandTotal = collect($cart)->sum(fn($item) => $item['price'] * $item['quantity']);
@@ -68,10 +72,21 @@ class OrderController extends Controller
             ]);
         }
 
+        // ✅ Send Emails
+        try {
+            // To user
+            Mail::to($request->email)->send(new OrderPlacedUserMail($order));
+
+            // To admin
+            Mail::to("admin@marketnest.com")->send(new OrderPlacedAdminMail($order));
+        } catch (\Exception $e) {
+            \Log::error('Mail sending failed: ' . $e->getMessage());
+        }
+
         session()->forget('cart');
 
         return redirect()->route('orders.success', $order->id)
-                         ->with('success', 'Order placed successfully!');
+            ->with('success', 'Order placed successfully! A confirmation email has been sent.');
     }
 
     public function success($id)

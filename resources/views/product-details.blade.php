@@ -36,10 +36,10 @@
                     <p class="mb-4">{{ $product->description }}</p>
 
                     <div class="d-flex gap-3">
-                        <a href="{{ route('cart.add', $product->id) }}" class="btn">
+                        <a href="{{ route('cart.add', $product->id) }}" class="btn nav-btn">
                             <i class="lni lni-cart"></i> Add to Cart
                         </a>
-                        <a href="#" class="btn btn-outline-secondary">
+                        <a href="{{route('index')}}" class="btn btn-outline-secondary">
                             Back to Products
                         </a>
                     </div>
