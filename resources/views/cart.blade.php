@@ -64,14 +64,14 @@
             </div>
 
             <div class="text-end mt-4">
-                <a href="{{ route('checkout.index') }}" class="btn btn-success btn-lg px-5 py-2 shadow">
+                <a href="{{ route('customer.checkout') }}" class="btn btn-success btn-lg px-5 py-2 shadow">
                     Proceed to Buy
                 </a>
             </div>
         @else
             <div class="text-center py-5">
                 <p class="text-muted fs-5">Your cart is empty.</p>
-                <a href="{{ route('shop.index') }}" class="btn btn-primary mt-3">
+                <a href="{{ route('shop') }}" class="btn btn-primary mt-3">
                     Continue Shopping
                 </a>
             </div>

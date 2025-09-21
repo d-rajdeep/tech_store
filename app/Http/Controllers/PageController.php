@@ -8,7 +8,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Product;
-use app\Models\Category;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Registration;
+use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
 {
@@ -62,9 +65,25 @@ class PageController extends Controller
         return view('contact');
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        return view('admin.login');
+        if ($request->isMethod('get')) {
+            return view('admin.login');
+        } else {
+            $request->validate([
+                'email' => 'required|email|exists:registrations,email',
+                'password' => 'required|min:6',
+            ]);
+
+            $user = Registration::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                // Auth::login($user, $request->has('remember'));
+                return view('admin.dashboard')->with('success', 'Login successful');
+            }
+
+            return back()->with('error', 'Invalid credentials');
+        }
     }
 
     public function register()

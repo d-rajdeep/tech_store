@@ -20,7 +20,7 @@ class OrderPlacedUserMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Your Order Confirmation - MarketNest')
+        return $this->subject('Your Order Confirmation - Tech Store')
                     ->markdown('emails.orders.user');
     }
 }

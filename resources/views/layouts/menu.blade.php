@@ -53,15 +53,18 @@
                                     <a href="{{ route('shop') }}" aria-label="Toggle navigation">Shop</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" aria-label="Toggle navigation"></a>
+                                    <a href="{{route('customer.dashboard')}}" aria-label="Toggle navigation">My Account</a>
                                 </li>
+                                {{-- <li class="nav-item">
+                                    <a href="#" aria-label="Toggle navigation"></a>
+                                </li> --}}
                             </ul>
 
                             <!-- Right Buttons -->
-                            <div class="d-flex gap-2">
+                            {{-- <div class="d-flex gap-2">
                                 <a href="#" class="btn nav-btn">Login</a>
                                 <a href="#" class="btn nav-btn">Register</a>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </nav>

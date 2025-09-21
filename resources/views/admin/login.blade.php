@@ -31,7 +31,7 @@
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
 
-                <form class="card login-form" method="POST" action="{{ route('login') }}">
+                <form class="card login-form" method="POST" action="{{ route('admin.login') }}">
                     @csrf
                     <div class="card-body">
                         <div class="title">
@@ -45,11 +45,11 @@
 
                         <div class="form-group input-group">
                             <label for="reg-email">Email</label>
-                            <input class="form-control @error('email') is-invalid @enderror" 
-                                   type="email" 
-                                   name="email" 
-                                   id="reg-email" 
-                                   value="{{ old('email') }}" 
+                            <input class="form-control @error('email') is-invalid @enderror"
+                                   type="email"
+                                   name="email"
+                                   id="reg-email"
+                                   value="{{ old('email') }}"
                                    required>
                             @error('email')
                                 <span class="text-danger small">{{ $message }}</span>
@@ -58,10 +58,10 @@
 
                         <div class="form-group input-group">
                             <label for="reg-pass">Password</label>
-                            <input class="form-control @error('password') is-invalid @enderror" 
-                                   type="password" 
-                                   name="password" 
-                                   id="reg-pass" 
+                            <input class="form-control @error('password') is-invalid @enderror"
+                                   type="password"
+                                   name="password"
+                                   id="reg-pass"
                                    required>
                             @error('password')
                                 <span class="text-danger small">{{ $message }}</span>
@@ -81,7 +81,7 @@
                         </div>
 
                         <p class="outer-link">
-                            Don't have an account? <a href="{{ route('user.register') }}">Register here</a>
+                            Don't have an account? <a href="{{ route('customer.register') }}">Register here</a>
                         </p>
                     </div>
                 </form>

@@ -96,7 +96,7 @@
                                             <a href="{{ route('cart.index') }}" class="btn btn-primary">View Cart</a>
                                         </div>
                                         <div class="button mt-2">
-                                            <a href="{{ route('checkout.index') }}" class="btn btn-success">Checkout</a>
+                                            <a href="{{ route('customer.checkout') }}" class="btn btn-success">Checkout</a>
                                         </div>
                                     </div>
                                 </div>

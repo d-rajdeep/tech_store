@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login.submit'); // your blade file path
+        return view('admin.login'); // your blade file path
     }
 
     public function login(Request $request)
