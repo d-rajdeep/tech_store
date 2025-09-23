@@ -26,14 +26,14 @@
     <!-- /End Preloader -->
 @include('layouts.topbar')
 {{-- begin::navbar --}}
-@include('layouts.navbar')
+{{-- @include('layouts.navbar') --}}
 {{-- end::navbar --}}
 
 {{-- begin::Menu --}}
 @include('layouts.menu')
 {{-- end::menu --}}
-        
-        
+
+
     </header>
     <!-- End Header Area -->
 
@@ -53,7 +53,7 @@
     <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script type="text/javascript">
-        //========= Hero Slider 
+        //========= Hero Slider
         tns({
             container: '.hero-slider',
             slideBy: 'page',

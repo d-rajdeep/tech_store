@@ -38,8 +38,12 @@ class CustomerAuthController extends Controller
     // Show login form
     public function showLogin()
     {
+        if (Auth::guard('customer')->check()) {
+            return redirect()->route('customer.dashboard');
+        }
         return view('customer.login');
     }
+
 
     // Handle login
     public function login(Request $request)

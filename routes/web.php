@@ -124,6 +124,13 @@ Route::middleware('auth:customer')->prefix('customer')->group(function () {
     Route::post('/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');
 });
 
+Route::middleware('auth:customer')->prefix('customer')->group(function () {
+    Route::get('/orders', [OrderController::class, 'index'])->name('customer.orders');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('customer.orders.show');
+    Route::post('/orders/{id}/cancel', [OrderController::class, 'cancel'])->name('customer.orders.cancel');
+});
+
+
 // Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login.post');
 
 // Route::post('/customer/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');

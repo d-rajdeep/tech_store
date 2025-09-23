@@ -6,15 +6,15 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
+
     protected function redirectTo($request): ?string
     {
-        if (! $request->expectsJson()) {
-            if ($request->routeIs('customer.*') || $request->routeIs('checkout.*')) {
-                return route('customer.login'); // ✅ Redirect customers
+        if (!$request->expectsJson()) {
+            if ($request->is('customer') || $request->is('customer/*')) {
+                return route('customer.login'); // ✅ Customers go to customer login
             }
-            if ($request->routeIs('admin.*')) {
-                return route('admin.login'); // ✅ Redirect admins
-            }
+
+            return route('admin.login'); // ✅ Admins go to admin login
         }
 
         return null;
