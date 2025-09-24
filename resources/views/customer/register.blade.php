@@ -1,81 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+@extends('layouts.app')
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-3">
-                <div class="card-header text-center bg-primary text-white">
-                    <h3>Create Customer Account</h3>
+@section('content')
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Registration</h1>
+                    </div>
                 </div>
-                <div class="card-body">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="breadcrumb-nav">
+                        <li><a href="{{ route('index') }}"><i class="lni lni-home"></i> Home</a></li>
+                        <li>Registration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
 
-                    {{-- Error Messages --}}
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    {{-- Success Message --}}
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ route('customer.register.post') }}" method="POST">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+    <!-- Start Account Register Area -->
+    <div class="account-login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                    <div class="register-form">
+                        <div class="title">
+                            <h3>No Account? Register</h3>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" name="email" id="email" class="form-control" required>
-                        </div>
+                        {{-- Display Validation Errors --}}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number (optional)</label>
-                            <input type="text" name="phone" id="phone" class="form-control">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">Confirm Password</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Register</button>
-                    </form>
-
-                    <div class="mt-3 text-center">
-                        <p>Already have an account?
-                            <a href="{{ route('customer.login') }}" class="text-decoration-none">Login here</a>
-                        </p>
+                        <form class="row" method="POST" action="{{ route('customer.register') }}">
+                            @csrf
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-fn">First Name</label>
+                                    <input class="form-control" type="text" id="reg-fn" name="first_name"
+                                        value="{{ old('first_name') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-ln">Last Name</label>
+                                    <input class="form-control" type="text" id="reg-ln" name="last_name"
+                                        value="{{ old('last_name') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-email">E-mail Address</label>
+                                    <input class="form-control" type="email" id="reg-email" name="email"
+                                        value="{{ old('email') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-phone">Phone Number</label>
+                                    <input class="form-control" type="text" id="reg-phone" name="phone"
+                                        value="{{ old('phone') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-pass">Password</label>
+                                    <input class="form-control" type="password" id="reg-pass" name="password" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-pass-confirm">Confirm Password</label>
+                                    <input class="form-control" type="password" id="reg-pass-confirm"
+                                        name="password_confirmation" required>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button class="btn" type="submit">Register</button>
+                            </div>
+                            <p class="outer-link">Already have an account? <a href="{{ route('customer.login') }}">Login Now</a>
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- End Account Register Area -->
 
-</body>
-</html>
+@endsection

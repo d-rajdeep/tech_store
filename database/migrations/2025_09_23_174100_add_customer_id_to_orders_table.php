@@ -12,14 +12,8 @@ return new class extends Migration {
     {
         Schema::table('orders', function (Blueprint $table) {
             // First add the column
-            if (!Schema::hasColumn('orders', 'customer_id')) {
-                $table->unsignedBigInteger('customer_id')->after('id');
-            }
-
-            // Then add foreign key constraint
-            $table->foreign('customer_id')
-                ->references('id')
-                ->on('customers')
+            $table->foreignId('customer_id')
+                ->constrained()
                 ->onDelete('cascade');
         });
     }

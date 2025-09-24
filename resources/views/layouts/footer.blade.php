@@ -1,37 +1,7 @@
 <!-- Start Footer Area -->
     <footer class="footer">
         <!-- Start Footer Top -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="inner-content">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-4 col-12">
-                            <div class="footer-logo">
-                                <a href="index.html">
-                                    <img src="{{ asset('assets/images/logo/white-logo.svg') }}" alt="Logo">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-md-8 col-12">
-                            <div class="footer-newsletter">
-                                <h4 class="title">
-                                    Subscribe to our Newsletter
-                                    <span>Get all the latest information, Sales and Offers.</span>
-                                </h4>
-                                <div class="newsletter-form-head">
-                                    <form action="#" method="get" target="_blank" class="newsletter-form">
-                                        <input name="EMAIL" placeholder="Email address here..." type="email">
-                                        <div class="button">
-                                            <button class="btn">Subscribe<span class="dir-part"></span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- End Footer Top -->
         <!-- Start Footer Middle -->
         <div class="footer-middle">
@@ -122,8 +92,8 @@
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="copyright">
-                                <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                                        target="_blank">GrayGrids</a></p>
+                                <p>Designed and Developed by<a href="https://d-rajdeep.gituhub.io/" rel="nofollow"
+                                        target="_blank">Rajdeep</a></p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">

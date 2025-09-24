@@ -130,6 +130,11 @@ Route::middleware('auth:customer')->prefix('customer')->group(function () {
     Route::post('/orders/{id}/cancel', [OrderController::class, 'cancel'])->name('customer.orders.cancel');
 });
 
+Route::get('/my-orders', [OrderController::class, 'myOrders'])
+    ->name('customer.dashboard')
+    ->middleware('auth:customer');
+
+
 
 // Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login.post');
 
